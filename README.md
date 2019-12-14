@@ -1,4 +1,4 @@
-# Onsetrp Auto Installer [WIP]
+# Onsetrp Auto Installer For Linux Server [WIP]
 
 # A simple bash file can change your life !
 
