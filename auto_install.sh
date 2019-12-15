@@ -42,7 +42,7 @@ do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
 echo
-echo -e "\e[92m               - Onset Auto Installer by Chilli -\e[0m"
+echo -e "\e[0m               - \e[92mO\e[0mnset \e[92mA\e[0muto \e[92mI\e[0mnstaller \e[92mB\e[0my \e[92mC\e[0mhilli -\e[0m"
 echo
 echo -e "\e[92m    W\e[0melcome to the best way to set up your own onset server\e[0m"
 echo -e "\e[92m    b\e[0mased on Frederic2ec Framework to get RP packages.\e[0m"
