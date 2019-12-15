@@ -42,7 +42,12 @@ do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
 echo
-echo -en "\e[92m                     - Chilli's Onset Auto Installer -\e[0m"
+echo -en "\e[92m                  - Onset Auto Installer by Chilli -\e[0m"
+echo
+echo
+echo -en "\e[92m           W\e[0melcome to the best way to set up your own onset server\e[0m"
+echo -en "\e[92m               b\e[0ased on Frederic2ec Framework to get RP packages."
+echo
 echo
 for i in {232..255}
 do
