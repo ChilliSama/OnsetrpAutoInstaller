@@ -19,6 +19,6 @@ declare -a root_required=("\e[7Vous devez être en root pour lancer le scrip." "
 # Run as root, of course.
 if [ "$UID" -ne "$ROOT_UID" ]
 then
-  echo ${root_required[$LANGAGE]}
+  echo -e ${root_required[$LANGAGE]}
   exit $E_NOTROOT
 fi  
