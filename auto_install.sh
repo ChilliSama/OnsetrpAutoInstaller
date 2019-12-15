@@ -15,10 +15,16 @@ LANGAGE=0      # [FR]LANGAGE=0 , [EN]LANGAGE=1
 
 #Translation - ${exemple[0]} to french
 declare -a root_required=("\e[7mVous devez être en root pour lancer le scrip.\e[0m" "\e[7Must be root to run this script.\e[0m")
+declare -a root_access=("\e[7mPermision Root : \e[32mOK\e[0m" "\e[7mRoot Permission : \e[32mOK\e[0m")
 
 # Run as root, of course.
+clear
 if [ "$UID" -ne "$ROOT_UID" ]
-then
-  echo -e ${root_required[$LANGAGE]}
-  exit $E_NOTROOT
-fi  
+    then
+        echo -e ${root_required[$LANGAGE]}
+        echo "\n"
+        exit $E_NOTROOT
+else
+    echo -e ${root_access[$LANGAGE]}
+    echo "\n"
+fi
