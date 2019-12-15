@@ -32,12 +32,12 @@ fi
 
 #===================================================================================#
 # Print startup message #
-for i in {16..21}
+for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
-echo -en "\e[38;5;16m-\e[0m"
-for i in {21..16}
+echo -en "\e[38;5;255m----------------\e[0m"
+for i in {255..232}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
