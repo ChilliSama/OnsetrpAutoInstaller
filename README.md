@@ -9,7 +9,7 @@
   
   Tout ce qu'il vous suffit de faire pour cela :
   
-    -$ sudo bash auto_install.sh
+    -$ bash auto_install.sh
     
   Et oui Chilli a penser à vous amis développeurs de scripts Onset !
   
@@ -22,7 +22,7 @@
   
   All you need to perform that :
   
-    -$ sudo bash auto_install.sh
+    -$ bash auto_install.sh
     
   Yes Chilli think to you my developers friends of Onset script !
   
