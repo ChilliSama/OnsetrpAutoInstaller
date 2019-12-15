@@ -22,9 +22,9 @@ clear
 if [ "$UID" -ne "$ROOT_UID" ]
     then
         echo -e ${root_required[$LANGAGE]}
-        echo "\n"
+        echo -e "\n"
         exit $E_NOTROOT
 else
     echo -e ${root_access[$LANGAGE]}
-    echo "\n"
+    echo -e "\n"
 fi
