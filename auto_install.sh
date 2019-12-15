@@ -14,7 +14,7 @@ E_NOTROOT=87   # Non-root exit error.
 LANGAGE=0      # [FR]LANGAGE=0 , [EN]LANGAGE=1
 
 #Translation - ${exemple[0]} to french
-declare -a root_required=("\e[7Vous devez être en root pour lancer le scrip." "\e[7Must be root to run this script.")
+declare -a root_required=("\e[7mVous devez être en root pour lancer le scrip." "\e[7Must be root to run this script.")
 
 # Run as root, of course.
 if [ "$UID" -ne "$ROOT_UID" ]
