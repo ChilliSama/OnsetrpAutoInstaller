@@ -1,4 +1,4 @@
-#!/bin/bash     
+#!/bin/bash
 #title           :auto_install.sh
 #description     :This script will make a Onset server automaticaly on linux server.
 #author		     :Chilli
@@ -17,18 +17,28 @@ LANGAGE=0      # [FR]LANGAGE=0 , [EN]LANGAGE=1
 declare -a root_required=("\e[7mVous devez être en root pour lancer le scrip.\e[0m" "\e[7Must be root to run this script.\e[0m")
 declare -a root_access=("\e[7mPermision Root : \e[32mOK\e[0m" "\e[7mRoot Permission : \e[32mOK\e[0m")
 
+#===================================================================================#
 # Run as root btw #
 clear
 if [ "$UID" -ne "$ROOT_UID" ]
-    then
-        echo -e ${root_required[$LANGAGE]}
-        echo -e "\n"
-        exit $E_NOTROOT
+then
+    echo -e ${root_required[$LANGAGE]}
+    echo -e "\n"
+    exit $E_NOTROOT
 else
     echo -e ${root_access[$LANGAGE]}
     echo -e "\n"
 fi
 
+#===================================================================================#
 # Print startup message #
-for i in {16..21} {21..16} ; do echo -en "\e[38;5;${i}m#\e[0m" ; done ; echo
-echo ""
+for i in {16..21}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo -en "\e[38;5;16m-\e[0m"
+for i in {21..16}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo
