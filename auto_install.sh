@@ -22,16 +22,28 @@ declare -a root_access=("\e[7mPermision Root : \e[32mOK\e[0m" "\e[7mRoot Permiss
 clear
 if [ "$UID" -ne "$ROOT_UID" ]
 then
-    echo -e ${root_required[$LANGAGE]}
-    echo -e "\n"
+    echo -en ${root_required[$LANGAGE]}
+    echo
     exit $E_NOTROOT
 else
-    echo -e ${root_access[$LANGAGE]}
-    echo -e "\n"
+    echo -en ${root_access[$LANGAGE]}
+    echo
 fi
 
 #===================================================================================#
 # Print startup message #
+for i in {232..255}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo -en "\e[38;5;255m----------------\e[0m"
+for i in {255..232}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo
+echo -en "\e[92m                     - Chilli's Onset Auto Installer -\e[0m"
+echo
 for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
