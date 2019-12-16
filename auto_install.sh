@@ -85,7 +85,7 @@ then
     fi
 fi
 
-LANGAGE=check_l
+LANGAGE=$check_l
 echo $LANGAGE
 echo
 
