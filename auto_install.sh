@@ -37,7 +37,7 @@ declare -a request_nano=("Voulez vous installer Nano ? [o|n] : " "Do you want to
 declare -a request_openssl=("Voulez vous installer Openssl ? [o|n] : " "Do you want to install Openssl ? [y|n] : ")
 declare -a awnser_trad=('[o-on-n]' '[y-yn-n]')
 declare -a remake_read=("Veuillez écrire [o]ui ou [n]on -> [o|n] : " "Please write [y]es ou [n]ot -> [y|n] : ")
-declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question."))
+declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question.")
 declare -a request_openssl=("Voulez vous installer Steam et Onset ? [o|n] : " "Do you want to install Steam and Onset ? [y|n] : ")
 
 clear
