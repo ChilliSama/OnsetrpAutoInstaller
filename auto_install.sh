@@ -18,6 +18,12 @@ SUCCESS=0      # Exit with success status
 # Translation - ${exemple[0]} to french #
 declare -a root_required=("\e[7mVous devez être en root pour lancer le scrip.\e[0m" "\e[7Must be root to run this script.\e[0m")
 declare -a root_access=("\e[7mPermision Root : \e[32mOK\e[0m" "\e[7mRoot Permission : \e[32mOK\e[0m")
+declare -a check_update=("\e[7mVérification des mises à jour [1/3]...\e[0m" "\e[7mChecking for update [1/3]...\e[0m")
+declare -a done_update=("\e[7mVérification des mises à jour : \e[32mTerminées\e[0m" "\e[7mChecking for update : \e[32mFinish\e[0m")
+declare -a check_upgrade=("\e[7mVérification des mises à jour [2/3]...\e[0m" "\e[7mChecking for update [2/3]...\e[0m")
+declare -a done_upgrade=("\e[7mVérification des mises à jour : \e[32mTerminées\e[0m" "\e[7mChecking for update : \e[32mFinish\e[0m")
+declare -a check_upgradedist=("\e[7mVérification des mises à jour [2/3]...\e[0m" "\e[7mChecking for update [2/3]...\e[0m")
+declare -a done_upgradedist=("\e[7mVérification des mises à jour : \e[32mTerminées\e[0m" "\e[7mChecking for update : \e[32mFinish\e[0m")
 
 clear
 #===================================================================================#
@@ -124,3 +130,22 @@ do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
 echo
+
+#===================================================================================#
+# Start update linux #
+echo
+echo -e ${check_update[$LANGAGE]}
+apt update
+echo -e ${done_update[$LANGAGE]}
+echo
+echo -e ${check_upgrade[$LANGAGE]}
+apt -y upgrade --auto-remove --purge
+echo -e ${done_upgrade[$LANGAGE]}
+echo
+echo -e ${check_upgradedist[$LANGAGE]}
+apt -y dist-upgrade --auto-remove --purge
+echo -e ${done_upgradedist[$LANGAGE]}
+echo
+
+#===================================================================================#
+# Start install required package for steamcmd #
