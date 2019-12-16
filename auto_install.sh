@@ -26,15 +26,13 @@ for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
-
 echo -en "\e[38;5;255m----------------\e[0m"
-
 for i in {255..232}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
-
 echo
+
 echo -e "\e[0m               - \e[92mO\e[0;4mnset\e[0m \e[92mA\e[0;4muto\e[0m \e[92mI\e[0;4mnstaller\e[0m \e[92mB\e[0;4my\e[0m \e[92mC\e[0;4mhilli\e[0m -\e[0m"
 echo
 echo -e "\e[92m    W\e[0melcome to the best way to set up your own onset server\e[0m"
@@ -45,17 +43,15 @@ for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
-
 echo -en "\e[38;5;255m----------------\e[0m"
-
 for i in {255..232}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
 done
+echo
 
 #===================================================================================#
 # Check Language #
-echo
 echo
 echo -e "Choose your language :"
 echo
@@ -84,9 +80,17 @@ then
         fi
     fi
 fi
+echo
 
-LANGAGE=$check_l
-echo $LANGAGE
+for i in {232..255}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo -en "\e[38;5;255m----------------\e[0m"
+for i in {255..232}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
 echo
 
 #===================================================================================#
@@ -100,3 +104,14 @@ else
     echo -e ${root_access[$LANGAGE]}
     echo
 fi
+
+for i in {232..255}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo -en "\e[38;5;255m----------------\e[0m"
+for i in {255..232}
+do
+    echo -en "\e[38;5;${i}m-\e[0m"
+done
+echo
