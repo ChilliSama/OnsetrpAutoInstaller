@@ -19,9 +19,9 @@ SUCCESS=0      # Exit with success status
 declare -a root_required=("\e[7mVous devez être en root pour lancer le scrip.\e[0m" "\e[7Must be root to run this script.\e[0m")
 declare -a root_access=("\e[7mPermision Root : \e[32mOK\e[0m" "\e[7mRoot Permission : \e[32mOK\e[0m")
 
-#===================================================================================#
-# Print startup message #
 clear
+#===================================================================================#
+# just for output style #
 for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
@@ -33,12 +33,16 @@ do
 done
 echo
 
+#===================================================================================#
+# Print startup message #
 echo -e "\e[0m               - \e[92mO\e[0;4mnset\e[0m \e[92mA\e[0;4muto\e[0m \e[92mI\e[0;4mnstaller\e[0m \e[92mB\e[0;4my\e[0m \e[92mC\e[0;4mhilli\e[0m -\e[0m"
 echo
 echo -e "\e[92m    W\e[0melcome to the best way to set up your own onset server\e[0m"
 echo -e "\e[92m    b\e[0mased on Frederic2ec Framework to get RP packages.\e[0m"
 echo
 
+#===================================================================================#
+# just for output style #
 for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
@@ -80,8 +84,9 @@ then
         fi
     fi
 fi
-echo
 
+#===================================================================================#
+# just for output style #
 for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
@@ -95,6 +100,7 @@ echo
 
 #===================================================================================#
 # Run as root btw #
+echo
 if [ "$UID" -ne "$ROOT_UID" ]
 then
     echo -e ${root_required[$LANGAGE]}
@@ -105,6 +111,8 @@ else
     echo
 fi
 
+#===================================================================================#
+# just for output style #
 for i in {232..255}
 do
     echo -en "\e[38;5;${i}m-\e[0m"
