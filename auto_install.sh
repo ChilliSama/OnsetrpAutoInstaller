@@ -36,7 +36,7 @@ echo
 #===================================================================================#
 # Print startup message #
 echo -e "\e[0m               - \e[92mO\e[0;4mnset\e[0m \e[92mA\e[0;4muto\e[0m \e[92mI\e[0;4mnstaller\e[0m \e[92mB\e[0;4my\e[0m \e[92mC\e[0;4mhilli\e[0m -\e[0m"
-echo -e "\e[0m                                [0;4mv1.0\e[0m"
+echo -e "\e[0m                                \e[0;4mv1.0\e[0m"
 echo
 echo -e "\e[92m    W\e[0melcome to the best way to set up your own onset server\e[0m"
 echo -e "\e[92m    b\e[0mased on Frederic2ec Framework to get RP packages.\e[0m"
