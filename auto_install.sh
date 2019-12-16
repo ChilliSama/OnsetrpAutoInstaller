@@ -65,17 +65,6 @@ echo
 read -p "Write the number here : " check_l
 echo
 
-if [-z $check_l]
-then
-    read -p "No language selected, please enter the number which correspond to your language : " check_l
-    echo
-    if [-z $check_l]
-    then
-        echo "No language selected, run again the script and select a language please !"
-        exit $ERROR
-    fi
-fi
-
 if ! [[ "$check_l" =~ ^[0-9]+$ ]]
 then
     read -p "[$check_l] is not a number, please select a language under the list : " check_l
