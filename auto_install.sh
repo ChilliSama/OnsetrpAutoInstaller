@@ -11,9 +11,11 @@
 # Global variable #
 ROOT_UID=0     # Only users with $UID 0 have root privileges.
 E_NOTROOT=87   # Non-root exit error.
-LANGAGE=0      # [FR]LANGAGE=0 , [EN]LANGAGE=1
+LANGUAGE=0     # [FR]LANGUAGE=0 , [EN]LANGUAGE=1
 ERROR=1        # Exit with error status
 SUCCESS=0      # Exit with success status
+CH='[a-zA-Z]'  # Character range in ascii to compare it 
+INT='^[0-9]+$' # Integer range in ascii to compare it 
 
 # Translation - ${exemple[0]} to french #
 declare -a root_required=("\e[7mVous devez être en root pour lancer le scrip.\e[0m" "\e[7Must be root to run this script.\e[0m")
@@ -30,6 +32,13 @@ declare -a install_nano=("\e[7mInstallation de nano [2/3]...\e[0m" "\e[7mNano in
 declare -a done_nano=("\e[7mStatut de nano : \e[32mInstallé\e[0m" "\e[7mNano status : \e[32mInstalled\e[0m")
 declare -a install_openssl=("\e[7mInstallation de openssl [3/3]...\e[0m" "\e[7mOpenssl instalation [3/3]...\e[0m")
 declare -a done_openssl=("\e[7mStatut de openssl : \e[32mInstallé\e[0m" "\e[7mOpenssl status : \e[32mInstalled\e[0m")
+declare -a request_curl=("Voulez vous installer Curl ? [o|n] : " "Do you want to install Curl ? [y|n] : ")
+declare -a request_nano=("Voulez vous installer Nano ? [o|n] : " "Do you want to install Nano ? [y|n] : ")
+declare -a request_openssl=("Voulez vous installer Openssl ? [o|n] : " "Do you want to install Openssl ? [y|n] : ")
+declare -a awnser_trad=('[o-on-n]' '[y-yn-n]')
+declare -a remake_read=("Veuillez écrire [o]ui ou [n]on -> [o|n] : " "Please write [y]es ou [n]ot -> [y|n] : ")
+declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question."))
+declare -a request_openssl=("Voulez vous installer Steam et Onset ? [o|n] : " "Do you want to install Steam and Onset ? [y|n] : ")
 
 clear
 #===================================================================================#
@@ -75,28 +84,30 @@ echo
 echo -e "[0] : French"
 echo -e "[1] : English"
 echo
-read -p "Write the number here : " check_l
+read -p "Write the number here : " check_r
 echo
 
-if ! [[ "$check_l" =~ ^[0-9]+$ ]]
+if ! [[ "$check_r" =~ $INT ]]
 then
-    read -p "[$check_l] is not a number, please select a language under the list : " check_l
+    read -p "[$check_r] is not a number, please select a language under the list : " check_r
     echo
-    if ! [[ "$check_l" =~ ^[0-9]+$ ]]
+    if ! [[ "$check_r" =~ $INT ]]
     then
-        echo "[$check_l] is not a number, run again the script and select a language under the list please !"
+        echo "[$check_r] is not a number, run again the script and select a language under the list please !"
         exit $ERROR
-    elif [$check_l -ne 0 -o $check_l -ne 1]
+    elif [$check_r -ne 0 -o $check_r -ne 1]
     then
-        read -p "[$check_l] are not on the list, please select a language under the list : " check_l
+        read -p "[$check_r] are not on the list, please select a language under the list : " check_r
         echo
-        if [-z "$check_l"]
+        if [-z "$check_r"]
         then
-            echo "[$check_l] are not on the list, run again the script and select a language under the list please !"
+            echo "[$check_r] are not on the list, run again the script and select a language under the list please !"
             exit $ERROR
         fi
     fi
+    LANGUAGE=$check_r
 fi
+echo "Language set to : ${p_language[$LANGUAGE]}"
 
 #===================================================================================#
 # just for output style #
@@ -116,11 +127,11 @@ echo
 echo
 if [ "$UID" -ne "$ROOT_UID" ]
 then
-    echo -e ${root_required[$LANGAGE]}
+    echo -e ${root_required[$LANGUAGE]}
     echo
     exit $E_NOTROOT
 else
-    echo -e ${root_access[$LANGAGE]}
+    echo -e ${root_access[$LANGUAGE]}
     echo
 fi
 
@@ -140,31 +151,136 @@ echo
 #===================================================================================#
 # Start update linux #
 echo
-echo -e ${check_update[$LANGAGE]}
+echo -e ${check_update[$LANGUAGE]}
 apt update
-echo -e ${done_update[$LANGAGE]}
+echo -e ${done_update[$LANGUAGE]}
 echo
-echo -e ${check_upgrade[$LANGAGE]}
+echo -e ${check_upgrade[$LANGUAGE]}
 apt -y upgrade --auto-remove --purge
-echo -e ${done_upgrade[$LANGAGE]}
+echo -e ${done_upgrade[$LANGUAGE]}
 echo
-echo -e ${check_upgradedist[$LANGAGE]}
+echo -e ${check_upgradedist[$LANGUAGE]}
 apt -y dist-upgrade --auto-remove --purge
-echo -e ${done_upgradedist[$LANGAGE]}
+echo -e ${done_upgradedist[$LANGUAGE]}
 echo
 
 #===================================================================================#
 # Start install required package for steamcmd #
+# Curl #
 echo
-echo -e ${install_curl[$LANGAGE]}
-apt -y install curl
-echo -e ${done_curl[$LANGAGE]}
+read -p ${request_curl[$LANGUAGE]} check_r
+if ! [[ "$check_r" =~ $CH ]]
+then
+    read -p ${remake_read[$LANGUAGE]} check_r
+    echo
+    if ! [[ "$check_r" =~ $CH ]]
+    then
+        echo ${error_read[$LANGUAGE]}
+        exit $ERROR
+    elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+    then
+        read -p ${remake_read[$LANGUAGE]} check_r
+        echo
+        if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+        then
+            echo ${error_read[$LANGUAGE]}
+            exit $ERROR
+        fi
+    fi
+fi
+if ["$check_r" = "o"]
+then
+    echo -e ${install_curl[$LANGUAGE]}
+    apt -y install curl
+    echo -e ${done_curl[$LANGUAGE]}
+    echo
+fi
+# Nano #
 echo
-echo -e ${install_nano[$LANGAGE]}
-apt -y install nano
-echo -e ${done_nano[$LANGAGE]}
+read -p ${request_nano[$LANGUAGE]} check_r
+if ! [[ "$check_r" =~ $CH ]]
+then
+    read -p ${remake_read[$LANGUAGE]} check_r
+    echo
+    if ! [[ "$check_r" =~ $CH ]]
+    then
+        echo ${error_read[$LANGUAGE]}
+        exit $ERROR
+    elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+    then
+        read -p ${remake_read[$LANGUAGE]} check_r
+        echo
+        if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+        then
+            echo ${error_read[$LANGUAGE]}
+            exit $ERROR
+        fi
+    fi
+fi
+if ["$check_r" = "o"]
+then
+    echo -e ${install_nano[$LANGUAGE]}
+    apt -y install nano
+    echo -e ${done_nano[$LANGUAGE]}
+    echo
+fi
+# Openssl #
 echo
-echo -e ${install_openssl[$LANGAGE]}
-apt -y install openssl
-echo -e ${done_openssl[$LANGAGE]}
-echo
+read -p ${request_openssl[$LANGUAGE]} check_r
+if ! [[ "$check_r" =~ $CH ]]
+then
+    read -p ${remake_read[$LANGUAGE]} check_r
+    echo
+    if ! [[ "$check_r" =~ $CH ]]
+    then
+        echo ${error_read[$LANGUAGE]}
+        exit $ERROR
+    elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+    then
+        read -p ${remake_read[$LANGUAGE]} check_r
+        echo
+        if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+        then
+            echo ${error_read[$LANGUAGE]}
+            exit $ERROR
+        fi
+    fi
+fi
+if ["$check_r" = "o"]
+then
+    echo -e ${install_openssl[$LANGUAGE]}
+    apt -y install openssl
+    echo -e ${done_openssl[$LANGUAGE]}
+    echo
+fi
+
+#===================================SAME=PATERN=FOR=SHELL=QUESTION==========================================#
+# Steamcmd #
+# echo
+# read -p ${request_steam[$LANGUAGE]} check_r
+# if ! [[ "$check_r" =~ $CH ]]
+# then
+#     read -p ${remake_read[$LANGUAGE]} check_r
+#     echo
+#     if ! [[ "$check_r" =~ $CH ]]
+#     then
+#         echo ${error_read[$LANGUAGE]}
+#         exit $ERROR
+#     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+#     then
+#         read -p ${remake_read[$LANGUAGE]} check_r
+#         echo
+#         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
+#         then
+#             echo ${error_read[$LANGUAGE]}
+#             exit $ERROR
+#         fi
+#     fi
+# fi
+# if ["$check_r" = "o"]
+# then
+#     echo -e ${install_openssl[$LANGUAGE]}
+#     apt -y install openssl
+#     echo -e ${done_openssl[$LANGUAGE]}
+#     echo
+# fi
