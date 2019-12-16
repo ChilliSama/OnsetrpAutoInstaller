@@ -32,13 +32,13 @@ declare -a install_nano=("\e[7mInstallation de nano [2/3]...\e[0m" "\e[7mNano in
 declare -a done_nano=("\e[7mStatut de nano : \e[32mInstallé\e[0m" "\e[7mNano status : \e[32mInstalled\e[0m")
 declare -a install_openssl=("\e[7mInstallation de openssl [3/3]...\e[0m" "\e[7mOpenssl instalation [3/3]...\e[0m")
 declare -a done_openssl=("\e[7mStatut de openssl : \e[32mInstallé\e[0m" "\e[7mOpenssl status : \e[32mInstalled\e[0m")
-declare -a request_curl=("Voulez vous installer Curl ? [o|n] : " "Do you want to install Curl ? [y|n] : ")
-declare -a request_nano=("Voulez vous installer Nano ? [o|n] : " "Do you want to install Nano ? [y|n] : ")
-declare -a request_openssl=("Voulez vous installer Openssl ? [o|n] : " "Do you want to install Openssl ? [y|n] : ")
+declare -a request_curl=("Voulez vous installer Curl [o|n] : " "Do you want to install Curl [y|n] : ")
+declare -a request_nano=("Voulez vous installer Nano [o|n] : " "Do you want to install Nano [y|n] : ")
+declare -a request_openssl=("Voulez vous installer Openssl [o|n] : " "Do you want to install Openssl [y|n] : ")
 declare -a awnser_trad=('[o-on-n]' '[y-yn-n]')
-declare -a remake_read=("Veuillez écrire [o]ui ou [n]on -> [o|n] : " "Please write [y]es ou [n]ot -> [y|n] : ")
+declare -a remake_read=("Veuillez ecrire [o]ui ou [n]on -> [o|n] : " "Please write [y]es ou [n]ot -> [y|n] : ")
 declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question.")
-declare -a request_openssl=("Voulez vous installer Steam et Onset ? [o|n] : " "Do you want to install Steam and Onset ? [y|n] : ")
+declare -a request_openssl=("Voulez vous installer Steam et Onset [o|n] : " "Do you want to install Steam and Onset [y|n] : ")
 
 clear
 #===================================================================================#
