@@ -62,12 +62,12 @@ echo
 echo -e "[0] : French"
 echo -e "[1] : English"
 echo
-read -p "Write the number here : " -n 1 check_l
+read -p "Write the number here : " check_l
 echo
 
 if [ -z $check_l]
 then
-    read -p "No language selected, please enter the number which correspond to your language : " -N check_l
+    read -p "No language selected, please enter the number which correspond to your language : " check_l
     echo
     if [-z $check_l]
     then
@@ -76,18 +76,29 @@ then
     fi
 fi
 
-if [$check_l -ne 0 -o $check_l -ne 1]
+if ! [[ "$check_l" =~ ^[0-9]+$ ]]
 then
-    read -p "["$check_l"] are not on the list, please select a language under the list : " -N check_l
+    read -p "[$check_l] is not a number, please select a language under the list : " check_l
     echo
-    if [-z "$check_l"]
+    if ! [[ "$check_l" =~ ^[0-9]+$ ]]
     then
-        echo "["$check_l"] are not on the list, run again the script and select a language under the list please !"
+        echo "["$check_l"] is not a number, run again the script and select a language under the list please !"
         exit $ERROR
+    elif [$check_l -ne 0 -o $check_l -ne 1]
+    then
+        read -p "["$check_l"] are not on the list, please select a language under the list : " check_l
+        echo
+        if [-z "$check_l"]
+        then
+            echo "["$check_l"] are not on the list, run again the script and select a language under the list please !"
+            exit $ERROR
+        fi
     fi
 fi
 
 LANGAGE=check_l
+echo $LANGAGE
+echo
 
 #===================================================================================#
 # Run as root btw #
