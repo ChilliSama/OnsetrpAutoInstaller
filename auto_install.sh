@@ -67,7 +67,7 @@ echo
 
 if [ -z $check_l]
 then
-    read -p "No language selected, please enter the number which correspond to your language : " -n 1 check_l
+    read -p "No language selected, please enter the number which correspond to your language : " -N check_l
     echo
     if [-z $check_l]
     then
@@ -78,7 +78,7 @@ fi
 
 if [$check_l -ne 0 -o $check_l -ne 1]
 then
-    read -p "["$check_l"] are not on the list, please select a language under the list : " -n 1 check_l
+    read -p "["$check_l"] are not on the list, please select a language under the list : " -N check_l
     echo
     if [-z "$check_l"]
     then
