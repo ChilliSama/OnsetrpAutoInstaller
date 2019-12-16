@@ -22,8 +22,14 @@ declare -a check_update=("\e[7mVérification des mises à jour [1/3]...\e[0m" "\
 declare -a done_update=("\e[7mVérification des mises à jour : \e[32mTerminées\e[0m" "\e[7mChecking for update : \e[32mFinish\e[0m")
 declare -a check_upgrade=("\e[7mVérification des mises à jour [2/3]...\e[0m" "\e[7mChecking for update [2/3]...\e[0m")
 declare -a done_upgrade=("\e[7mVérification des mises à jour : \e[32mTerminées\e[0m" "\e[7mChecking for update : \e[32mFinish\e[0m")
-declare -a check_upgradedist=("\e[7mVérification des mises à jour [2/3]...\e[0m" "\e[7mChecking for update [2/3]...\e[0m")
+declare -a check_upgradedist=("\e[7mVérification des mises à jour [3/3]...\e[0m" "\e[7mChecking for update [3/3]...\e[0m")
 declare -a done_upgradedist=("\e[7mVérification des mises à jour : \e[32mTerminées\e[0m" "\e[7mChecking for update : \e[32mFinish\e[0m")
+declare -a install_curl=("\e[7mInstallation de curl [1/3]...\e[0m" "\e[7mCurl instalation [1/3]...\e[0m")
+declare -a done_curl=("\e[7mStatut de curl : \e[32mInstallé\e[0m" "\e[7mCurl status : \e[32mInstalled\e[0m")
+declare -a install_nano=("\e[7mInstallation de nano [2/3]...\e[0m" "\e[7mNano instalation [2/3]...\e[0m")
+declare -a done_nano=("\e[7mStatut de nano : \e[32mInstallé\e[0m" "\e[7mNano status : \e[32mInstalled\e[0m")
+declare -a install_openssl=("\e[7mInstallation de openssl [3/3]...\e[0m" "\e[7mOpenssl instalation [3/3]...\e[0m")
+declare -a done_openssl=("\e[7mStatut de openssl : \e[32mInstallé\e[0m" "\e[7mOpenssl status : \e[32mInstalled\e[0m")
 
 clear
 #===================================================================================#
@@ -149,3 +155,16 @@ echo
 
 #===================================================================================#
 # Start install required package for steamcmd #
+echo
+echo -e ${install_curl[$LANGAGE]}
+apt -y install curl
+echo -e ${done_curl[$LANGAGE]}
+echo
+echo -e ${install_nano[$LANGAGE]}
+apt -y install nano
+echo -e ${done_nano[$LANGAGE]}
+echo
+echo -e ${install_openssl[$LANGAGE]}
+apt -y install openssl
+echo -e ${done_openssl[$LANGAGE]}
+echo
