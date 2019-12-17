@@ -113,7 +113,7 @@ then
             exit $ERROR
         fi
     fi
-    LANGUAGE=$check_r
+    LANGUAGE="$check_r"
 fi
 echo "Language set to : ${p_language[$LANGUAGE]}"
 
@@ -386,6 +386,8 @@ then
 
     #===================================================================================#
 
+    sleep 4
+    clear
     adduser -p $PSWD $USERTMP
     usermod -aG sudo $USERTMP
     su $USERTMP -p $PSWD
