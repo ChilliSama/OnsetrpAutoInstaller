@@ -176,145 +176,145 @@ echo
 # Start install required package for steamcmd #
 # Curl #
 echo
-echo -n "${request_curl[$LANGUAGE]}"
+echo -n ${request_curl[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n "${remake_read[$LANGUAGE]}"
+        echo -n ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
-            echo "${error_read[$LANGUAGE]}"
+            echo ${error_read[$LANGUAGE]}
             exit $ERROR
         fi
     fi
 fi
 if [ "$check_r" == "o" ]
 then
-    echo -e "${install_curl[$LANGUAGE]}"
+    echo -e ${install_curl[$LANGUAGE]}
     apt -y install curl
-    echo -e "${done_curl[$LANGUAGE]}"
+    echo -e ${done_curl[$LANGUAGE]}
     echo
 else
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if [ "$check_r" == "o" ]
     then
-        echo -e "${install_curl[$LANGUAGE]}"
+        echo -e ${install_curl[$LANGUAGE]}
         apt -y install curl
-        echo -e "${done_curl[$LANGUAGE]}"
+        echo -e ${done_curl[$LANGUAGE]}
         echo
     else
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     fi
 fi
 # Nano #
 echo
-echo -n "${request_nano[$LANGUAGE]}"
+echo -n ${request_nano[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n "${remake_read[$LANGUAGE]}"
+        echo -n ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
-            echo "${error_read[$LANGUAGE]}"
+            echo ${error_read[$LANGUAGE]}
             exit $ERROR
         fi
     fi
 fi
 if [ "$check_r" == "o" ]
 then
-    echo -e "${install_nano[$LANGUAGE]}"
+    echo -e ${install_nano[$LANGUAGE]}
     apt -y install nano
-    echo -e "${done_nano[$LANGUAGE]}"
+    echo -e ${done_nano[$LANGUAGE]}
     echo
 else
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if [ "$check_r" == "o" ]
     then
-        echo -e "${install_nano[$LANGUAGE]}"
+        echo -e ${install_nano[$LANGUAGE]}
         apt -y install nano
-        echo -e "${done_nano[$LANGUAGE]}"
+        echo -e ${done_nano[$LANGUAGE]}
         echo
     else
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     fi
 fi
 # Openssl #
 echo
-echo -n "${request_openssl[$LANGUAGE]}"
+echo -n ${request_openssl[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n "${remake_read[$LANGUAGE]}"
+        echo -n ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
-            echo "${error_read[$LANGUAGE]}"
+            echo ${error_read[$LANGUAGE]}
             exit $ERROR
         fi
     fi
 fi
 if [ "$check_r" == "o" ]
 then
-    echo -e "${install_openssl[$LANGUAGE]}"
+    echo -e ${install_openssl[$LANGUAGE]}
     apt -y install openssl
-    echo -e "${done_openssl[$LANGUAGE]}"
+    echo -e ${done_openssl[$LANGUAGE]}
     echo
 else
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if [ "$check_r" == "o" ]
     then
-        echo -e "${install_openssl[$LANGUAGE]}"
+        echo -e ${install_openssl[$LANGUAGE]}
         apt -y install openssl
-        echo -e "${done_openssl[$LANGUAGE]}"
+        echo -e ${done_openssl[$LANGUAGE]}
         echo
     else
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     fi
 fi
@@ -322,38 +322,38 @@ fi
 #===================================================================================#
 # Steamcmd #
 echo
-echo -n "${request_steamcmd[$LANGUAGE]}"
+echo -n ${request_steamcmd[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n "${remake_read[$LANGUAGE]}"
+    echo -n ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
-        echo "${error_read[$LANGUAGE]}"
+        echo ${error_read[$LANGUAGE]}
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n "${remake_read[$LANGUAGE]}"
+        echo -n ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
-            echo "${error_read[$LANGUAGE]}"
+            echo ${error_read[$LANGUAGE]}
             exit $ERROR
         fi
     fi
 fi
 if [ "$check_r" == "o" ]
 then
-    echo -e "${install_gcc[$LANGUAGE]}"
+    echo -e ${install_gcc[$LANGUAGE]}
     apt-get -y install lib32gcc1
-    echo -e "${done_gcc[$LANGUAGE]}"
+    echo -e ${done_gcc[$LANGUAGE]}
     echo
-    echo -e "${install_sudo[$LANGUAGE]}"
+    echo -e ${install_sudo[$LANGUAGE]}
     apt-get -y install sudo
-    echo -e "${done_sudo[$LANGUAGE]}"
+    echo -e ${done_sudo[$LANGUAGE]}
     echo
     #===================================================================================#
     # Create sudo user #
@@ -371,7 +371,7 @@ then
 
     #===================================================================================#
     
-    echo -e "${user_create[$LANGUAGE]}"
+    echo -e ${user_create[$LANGUAGE]}
     echo
 
     #===================================================================================#
@@ -399,6 +399,6 @@ then
 
 else
 then
-    echo "${error_read[$LANGUAGE]}"
+    echo ${error_read[$LANGUAGE]}
     exit $ERROR
 fi
