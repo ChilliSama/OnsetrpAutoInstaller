@@ -397,8 +397,7 @@ then
     sleep 4
     adduser --disabled-password --no-create-home --gecos "" $USERTMP
     usermod -aG sudo $USERTMP
-    echo -n "coucou" | sudo -u "root" deluser $USERTMP  - delet tmp user
-
+    echo -n "coucou" | sudo -u "root" deluser $USERTMP
     #===================================================================================#
 
 elif [ "$check_r" != "n" ]
