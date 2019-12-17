@@ -45,10 +45,8 @@ declare -a install_gcc=("\e[7mInstallation de GCC [3/3]...\e[0m" "\e[7mGCC insta
 declare -a done_gcc=("\e[7mStatut de GCC : \e[32mInstallé\e[0m" "\e[7mGCC status : \e[32mInstalled\e[0m")
 declare -a install_sudo=("\e[7mInstallation de Sudo [3/3]...\e[0m" "\e[7mSudo instalation [3/3]...\e[0m")
 declare -a done_sudo=("\e[7mStatut de Sudo : \e[32mInstallé\e[0m" "\e[7mSudo status : \e[32mInstalled\e[0m")
-declare -a user_create=("\e[92m    C\e[0mreation d'un nouvelle utilisateur temporaire.\e[0m" "\e[92m    C\e[0mreation of temporary user.\e[0m")
-declare -a user_delete=("\e[92m    S\e[0mupression de l'utilisateur temporaire.\e[0m" "\e[92m    D\e[0meleting temporary user.\e[0m")
-declare -a done_gcc=("\e[7mStatut de SteamCMD : \e[32mInstallé\e[0m" "\e[7mSteamCMD status : \e[32mInstalled\e[0m")
-declare -a install_sudo=("\e[7mInstallation de SteamCMD [3/3]...\e[0m" "\e[7mSteamCMD instalation [3/3]...\e[0m")
+declare -a install_steamcmd=("\e[7mStatut de SteamCMD : \e[32mInstallé\e[0m" "\e[7mSteamCMD status : \e[32mInstalled\e[0m")
+declare -a done_steamcmd=("\e[7mInstallation de SteamCMD [3/3]...\e[0m" "\e[7mSteamCMD instalation [3/3]...\e[0m")
 
 clear
 #===================================================================================#
@@ -379,13 +377,14 @@ then
     echo
     echo -e ${install_steamcmd[$LANGUAGE]}
     echo
-    mkdir /home/Steam
+    mkdir /home/OnsetrpAutoInstaller/Steam
     echo
-    cd /home/Steam
+    cd /home/OnsetrpAutoInstaller/Steam
     echo 
     curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+    sleep 8
     echo
-    bash steamcmd.sh +login anonymous +force_install_dir ./OnsetServer/ +app_update 1204170 validate +quit
+    ./steamcmd.sh +login anonymous +force_install_dir ./OnsetServer/ +app_update 1204170 validate +quit
     echo
 
 
