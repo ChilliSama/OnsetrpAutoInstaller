@@ -121,7 +121,6 @@ elif [ $check_r -eq 0 ]
 then
     LANGUAGE=0
 fi
-echo "Language set to : ${p_language[$LANGUAGE]}"
 
 #===================================================================================#
 # just for output style #
@@ -394,9 +393,13 @@ then
 
     #===================================================================================#
 
+    echo
     sleep 4
     adduser --disabled-password --no-create-home --gecos "" $USERTMP
     usermod -aG sudo $USERTMP
+    echo
+    sudo -u $USERTMP mkdir Steam
+    sudo -u $USERTMP cd Steam
     echo -n "coucou" | sudo -u "root" deluser $USERTMP
     #===================================================================================#
 
@@ -407,3 +410,4 @@ then
 fi
 
 #echo -n "pswd" | sudo -u "root" deluser $USERTMP  - delet tmp user
+#mysql -u username -p database_name < file.sql   - import .sql
