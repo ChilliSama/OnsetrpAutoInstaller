@@ -41,12 +41,18 @@ declare -a awnser_trad=('[o-on-en]' '[y-yn-en]')
 declare -a remake_read=("Veuillez écrire [o]ui ou [n]on -> [o/n] : " "Please write [y]es ou [n]ot -> [y/n] : ")
 declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question.")
 declare -a request_steamcmd=("Voulez vous installer Steamcmd et Onset ? [o/n] : " "Do you want to install Steamcmd and Onset ? [y/n] : ")
-declare -a install_gcc=("\e[7mInstallation de GCC [3/3]...\e[0m" "\e[7mGCC instalation [3/3]...\e[0m")
+declare -a install_gcc=("\e[7mInstallation de GCC...\e[0m" "\e[7mGCC instalation...\e[0m")
 declare -a done_gcc=("\e[7mStatut de GCC : \e[32mInstallé\e[0m" "\e[7mGCC status : \e[32mInstalled\e[0m")
-declare -a install_sudo=("\e[7mInstallation de Sudo [3/3]...\e[0m" "\e[7mSudo instalation [3/3]...\e[0m")
+declare -a install_sudo=("\e[7mInstallation de Sudo...\e[0m" "\e[7mSudo instalation...\e[0m")
 declare -a done_sudo=("\e[7mStatut de Sudo : \e[32mInstallé\e[0m" "\e[7mSudo status : \e[32mInstalled\e[0m")
-declare -a install_steamcmd=("\e[7mStatut de SteamCMD : \e[32mInstallé\e[0m" "\e[7mSteamCMD status : \e[32mInstalled\e[0m")
-declare -a done_steamcmd=("\e[7mInstallation de SteamCMD [3/3]...\e[0m" "\e[7mSteamCMD instalation [3/3]...\e[0m")
+declare -a install_steamcmd=("\e[7mInstallation de SteamCMD...\e[0m" "\e[7mSteamCMD instalation...\e[0m")
+declare -a done_steamcmd=("\e[7mStatut de SteamCMD : \e[32mInstallé\e[0m" "\e[7mSteamCMD status : \e[32mInstalled\e[0m")
+declare -a install_onset=("\e[7mInstallation de Onset...\e[0m" "\e[7mOnset instalation...\e[0m")
+declare -a done_onset=("\e[7mStatut de Onset : \e[32mInstallé\e[0m" "\e[7mOnset status : \e[32mInstalled\e[0m")
+declare -a install_framework=("\e[7mInstallation du framework de Frederic2ec...\e[0m" "\e[7mInstallation of Frederic2ec framework...\e[0m")
+declare -a done_framework=("\e[7mStatut du framework : \e[32mInstallé\e[0m" "\e[7mFramework status : \e[32mInstalled\e[0m")
+declare -a config_onset=("\e[92m    C\e[0monfiguration du serveur Onset RP.\e[0m" "\e[92m    C\e[0monfiguration of the Onset RP server.\e[0m")
+
 
 clear
 #===================================================================================#
@@ -377,16 +383,6 @@ then
     echo
     echo -e ${install_steamcmd[$LANGUAGE]}
     echo
-    mkdir /home/OnsetrpAutoInstaller/Steam
-    echo
-    cd /home/OnsetrpAutoInstaller/Steam
-    echo 
-    curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
-    sleep 8
-    echo
-    ./steamcmd.sh +login anonymous +force_install_dir ./OnsetServer/ +app_update 1204170 validate +quit
-    echo
-
 
     #===================================================================================#
     # just for output style #
@@ -404,7 +400,70 @@ then
     #===================================================================================#
 
     echo
+    mkdir /home/OnsetrpAutoInstaller/Steam
+    echo
+    cd /home/OnsetrpAutoInstaller/Steam
+    echo 
+    curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+    sleep 8
+    echo
+    echo -e ${done_steamcmd[$LANGUAGE]}
+    echo
+    echo -e ${install_onset[$LANGUAGE]}
+    echo
+    ./steamcmd.sh +login anonymous +force_install_dir ./OnsetServer/ +app_update 1204170 validate +quit
+    clear
+    echo
+    echo -e ${install_onset[$LANGUAGE]}
+    echo
+    cd /home/OnsetrpAutoInstaller/Steam/OnsetServer/packages
+    echo
+    echo -e ${install_framework[$LANGUAGE]}
+    echo
+    git clone https://github.com/OnfireNetwork/i18n.git
+    echo
+    git clone https://github.com/OnfireNetwork/dialogui.git
+    echo
+    git clone https://github.com/frederic2ec/onsetrp.git
+    echo
+    echo -e ${done_framework[$LANGUAGE]}
+    echo
+    sleep 4
+    clear
+
+    #===================================================================================#
+    # Config OnsetRP #
+    # just for output style #
+    for i in {232..255}
+    do
+        echo -en "\e[38;5;${i}m-\e[0m"
+    done
+    echo -en "\e[38;5;255m----------------\e[0m"
+    for i in {255..232}
+    do
+        echo -en "\e[38;5;${i}m-\e[0m"
+    done
+    echo
+
+    #===================================================================================#
     
+    echo
+    echo -e ${config_onset[$LANGUAGE]}
+    echo
+
+    #===================================================================================#
+    # just for output style #
+    for i in {232..255}
+    do
+        echo -en "\e[38;5;${i}m-\e[0m"
+    done
+    echo -en "\e[38;5;255m----------------\e[0m"
+    for i in {255..232}
+    do
+        echo -en "\e[38;5;${i}m-\e[0m"
+    done
+    echo
+
     #===================================================================================#
 
 elif [ "$check_r" != "n" ]
@@ -414,3 +473,10 @@ then
 fi
 
 #mysql -u username -p database_name < file.sql   - import .sql
+
+
+
+# maridb 
+# CREATE USER foo2@test IDENTIFIED BY 'password';
+# use blbl
+# source roleplay.sql
