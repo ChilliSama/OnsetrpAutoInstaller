@@ -358,6 +358,7 @@ then
     apt-get -y install sudo
     echo -e ${done_sudo[$LANGUAGE]}
     echo
+    clear
     #===================================================================================#
     # Create sudo user #
     # just for output style #
@@ -394,7 +395,7 @@ then
     #===================================================================================#
 
     sleep 4
-    adduser --disabled-password --no-create-home --gecos $USERTMP
+    adduser --disabled-password --no-create-home --gecos "" $USERTMP
     usermod -aG sudo $USERTMP
     echo -n "coucou" | sudo -u "root" deluser $USERTMP  - delet tmp user
 
