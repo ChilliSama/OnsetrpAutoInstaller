@@ -205,7 +205,8 @@ then
     apt -y install curl
     echo -e ${done_curl[$LANGUAGE]}
     echo
-else
+elif [ "$check_r" =~ "n" ]
+then
     echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
@@ -251,7 +252,8 @@ then
     apt -y install nano
     echo -e ${done_nano[$LANGUAGE]}
     echo
-else
+elif [ "$check_r" =~ "n" ]
+then
     echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
@@ -297,7 +299,8 @@ then
     apt -y install openssl
     echo -e ${done_openssl[$LANGUAGE]}
     echo
-else
+elif [ "$check_r" =~ "n" ]
+then
     echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
@@ -391,7 +394,8 @@ then
 
     #===================================================================================#
 
-else
+elif [ "$check_r" =~ "n" ]
+then
     echo ${error_read[$LANGUAGE]}
     exit $ERROR
 fi
