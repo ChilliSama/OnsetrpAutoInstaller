@@ -206,7 +206,6 @@ then
     echo -e ${done_curl[$LANGUAGE]}
     echo
 else
-then
     echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
@@ -217,7 +216,6 @@ then
         echo -e ${done_curl[$LANGUAGE]}
         echo
     else
-    then
         echo ${error_read[$LANGUAGE]}
         exit $ERROR
     fi
@@ -254,7 +252,6 @@ then
     echo -e ${done_nano[$LANGUAGE]}
     echo
 else
-then
     echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
@@ -265,7 +262,6 @@ then
         echo -e ${done_nano[$LANGUAGE]}
         echo
     else
-    then
         echo ${error_read[$LANGUAGE]}
         exit $ERROR
     fi
@@ -302,7 +298,6 @@ then
     echo -e ${done_openssl[$LANGUAGE]}
     echo
 else
-then
     echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
@@ -313,7 +308,6 @@ then
         echo -e ${done_openssl[$LANGUAGE]}
         echo
     else
-    then
         echo ${error_read[$LANGUAGE]}
         exit $ERROR
     fi
@@ -398,7 +392,6 @@ then
     #===================================================================================#
 
 else
-then
     echo ${error_read[$LANGUAGE]}
     exit $ERROR
 fi
