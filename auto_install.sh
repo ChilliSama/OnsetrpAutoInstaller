@@ -139,7 +139,7 @@ echo
 #===================================================================================#
 # Run as root btw #
 echo
-if [ "$UID" -ene "$ROOT_UID" ]
+if [ "$UID" -ne "$ROOT_UID" ]
 then
     echo -e ${root_required[$LANGUAGE]}
     echo
@@ -397,7 +397,7 @@ then
     adduser --disabled-password --no-create-home $USERTMP
     usermod -aG sudo $USERTMP
     echo "test"
-    sudo -u $USERTMP deluser $USERTMP
+    echo -n "coucou" | sudo -u "root" deluser $USERTMP
 
     #===================================================================================#
 
