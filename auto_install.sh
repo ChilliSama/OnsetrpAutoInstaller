@@ -394,11 +394,10 @@ then
 
     sleep 4
     clear
-    adduser --disabled-password $USERTMP
+    adduser --disabled-password --no-create-home $USERTMP
     usermod -aG sudo $USERTMP
-    su $USERTMP
     echo "test"
-    sudo -S deluser $USERTMP
+    sudo -u $USERTMP deluser $USERTMP
 
     #===================================================================================#
 
