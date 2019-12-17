@@ -388,11 +388,11 @@ then
 
     sleep 4
     clear
-    adduser -M $USERTMP -p $PSWD 
+    adduser --disabled-password $USERTMP
     usermod -aG sudo $USERTMP
-    su $USERTMP -p $PSWD
+    su $USERTMP
     echo "test"
-    echo "$PSWD" | sudo -S deluser $USERTMP
+    sudo -S deluser $USERTMP
 
     #===================================================================================#
 
