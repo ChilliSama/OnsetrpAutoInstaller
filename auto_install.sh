@@ -32,13 +32,13 @@ declare -a install_nano=("\e[7mInstallation de nano [2/3]...\e[0m" "\e[7mNano in
 declare -a done_nano=("\e[7mStatut de nano : \e[32mInstallé\e[0m" "\e[7mNano status : \e[32mInstalled\e[0m")
 declare -a install_openssl=("\e[7mInstallation de openssl [3/3]...\e[0m" "\e[7mOpenssl instalation [3/3]...\e[0m")
 declare -a done_openssl=("\e[7mStatut de openssl : \e[32mInstallé\e[0m" "\e[7mOpenssl status : \e[32mInstalled\e[0m")
-declare -a request_curl=("Voulez vous installer Curl [o] or [n] : " "Do you want to install Curl [y] or [n] : ")
-declare -a request_nano=("Voulez vous installer Nano [o] or [n] : " "Do you want to install Nano [y] or [n] : ")
-declare -a request_openssl=("Voulez vous installer Openssl [o] or [n] : " "Do you want to install Openssl [y] or [n] : ")
+declare -a request_curl=("Voulez vous installer Curl ? [o/n] : " "Do you want to install Curl ? [y/n] : ")
+declare -a request_nano=("Voulez vous installer Nano ? [o/n] : " "Do you want to install Nano ? [y/n] : ")
+declare -a request_openssl=("Voulez vous installer Openssl ? [o/n] : " "Do you want to install Openssl ? [y/n] : ")
 declare -a awnser_trad=('[o-on-n]' '[y-yn-n]')
-declare -a remake_read=("Veuillez ecrire [o]ui ou [n]on -> [o] or [n] : " "Please write [y]es ou [n]ot -> [y] or [n] : ")
+declare -a remake_read=("Veuillez écrire [o]ui ou [n]on -> [o/n] : " "Please write [y]es ou [n]ot -> [y/n] : ")
 declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question.")
-declare -a request_openssl=("Voulez vous installer Steam et Onset [o] or [n] : " "Do you want to install Steam and Onset [y] or [n] : ")
+declare -a request_openssl=("Voulez vous installer Steam et Onset ? [o/n] : " "Do you want to install Steam and Onset ? [y/n] : ")
 
 clear
 #===================================================================================#
@@ -168,10 +168,12 @@ echo
 # Start install required package for steamcmd #
 # Curl #
 echo
-read -p ${request_curl[$LANGUAGE]} check_r
+echo -n ${request_curl[$LANGUAGE]}
+read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    read -p ${remake_read[$LANGUAGE]} check_r
+    echo -n ${remake_read[$LANGUAGE]}
+    read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
@@ -179,7 +181,8 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        read -p ${remake_read[$LANGUAGE]} check_r
+        echo -n ${remake_read[$LANGUAGE]}
+        read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
@@ -197,10 +200,12 @@ then
 fi
 # Nano #
 echo
-read -p ${request_nano[$LANGUAGE]} check_r
+echo -n ${request_nano[$LANGUAGE]}
+read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    read -p ${remake_read[$LANGUAGE]} check_r
+    echo -n ${remake_read[$LANGUAGE]}
+    read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
@@ -208,7 +213,8 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        read -p ${remake_read[$LANGUAGE]} check_r
+        echo -n ${remake_read[$LANGUAGE]}
+        read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
@@ -226,10 +232,12 @@ then
 fi
 # Openssl #
 echo
-read -p ${request_openssl[$LANGUAGE]} check_r
+echo -n ${request_openssl[$LANGUAGE]}
+read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    read -p ${remake_read[$LANGUAGE]} check_r
+    echo -n ${remake_read[$LANGUAGE]}
+    read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
     then
@@ -237,7 +245,8 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        read -p ${remake_read[$LANGUAGE]} check_r
+        echo -n ${remake_read[$LANGUAGE]}
+        read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
         then
@@ -254,33 +263,5 @@ then
     echo
 fi
 
-#===================================SAME=PATERN=FOR=SHELL=QUESTION==========================================#
+#===================================================================================#
 # Steamcmd #
-# echo
-# read -p ${request_steam[$LANGUAGE]} check_r
-# if ! [[ "$check_r" =~ $CH ]]
-# then
-#     read -p ${remake_read[$LANGUAGE]} check_r
-#     echo
-#     if ! [[ "$check_r" =~ $CH ]]
-#     then
-#         echo ${error_read[$LANGUAGE]}
-#         exit $ERROR
-#     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
-#     then
-#         read -p ${remake_read[$LANGUAGE]} check_r
-#         echo
-#         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
-#         then
-#             echo ${error_read[$LANGUAGE]}
-#             exit $ERROR
-#         fi
-#     fi
-# fi
-# if ["$check_r" = "o"]
-# then
-#     echo -e ${install_openssl[$LANGUAGE]}
-#     apt -y install openssl
-#     echo -e ${done_openssl[$LANGUAGE]}
-#     echo
-# fi
