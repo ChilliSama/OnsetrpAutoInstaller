@@ -374,6 +374,7 @@ then
 
     #===================================================================================#
     
+    echo
     echo -e ${user_create[$LANGUAGE]}
     echo
 
@@ -393,11 +394,9 @@ then
     #===================================================================================#
 
     sleep 4
-    clear
-    adduser --disabled-password --no-create-home $USERTMP
+    adduser --disabled-password --no-create-home --gecos $USERTMP
     usermod -aG sudo $USERTMP
-    echo "test"
-    echo -n "coucou" | sudo -u "root" deluser $USERTMP
+    echo -n "coucou" | sudo -u "root" deluser $USERTMP  - delet tmp user
 
     #===================================================================================#
 
@@ -406,3 +405,5 @@ then
     echo ${error_read[$LANGUAGE]}
     exit $ERROR
 fi
+
+#echo -n "pswd" | sudo -u "root" deluser $USERTMP  - delet tmp user
