@@ -37,7 +37,7 @@ declare -a done_openssl=("\e[7mStatut de openssl : \e[32mInstallé\e[0m" "\e[7mO
 declare -a request_curl=("Voulez vous installer Curl ? [o/n] : " "Do you want to install Curl ? [y/n] : ")
 declare -a request_nano=("Voulez vous installer Nano ? [o/n] : " "Do you want to install Nano ? [y/n] : ")
 declare -a request_openssl=("Voulez vous installer Openssl ? [o/n] : " "Do you want to install Openssl ? [y/n] : ")
-declare -a awnser_trad=('[o-on-n]' '[y-yn-n]')
+declare -a awnser_trad=('[o-on-en]' '[y-yn-en]')
 declare -a remake_read=("Veuillez écrire [o]ui ou [n]on -> [o/n] : " "Please write [y]es ou [n]ot -> [y/n] : ")
 declare -a error_read=("Veuillez relancer le scrip en étant sur de bien répondre aux questions." "Please run the script again and make sure to correctly awnser to the question.")
 declare -a request_steamcmd=("Voulez vous installer Steamcmd et Onset ? [o/n] : " "Do you want to install Steamcmd and Onset ? [y/n] : ")
@@ -103,7 +103,7 @@ then
     then
         echo "[$check_r] is not a number, run again the script and select a language under the list please !"
         exit $ERROR
-    elif [$check_r -ne 0 -o $check_r -ne 1]
+    elif [$check_r -ene 0 -o $check_r -ene 1]
     then
         read -p "[$check_r] are not on the list, please select a language under the list : " check_r
         echo
@@ -133,7 +133,7 @@ echo
 #===================================================================================#
 # Run as root btw #
 echo
-if [ "$UID" -ne "$ROOT_UID" ]
+if [ "$UID" -ene "$ROOT_UID" ]
 then
     echo -e ${root_required[$LANGUAGE]}
     echo
@@ -176,11 +176,11 @@ echo
 # Start install required package for steamcmd #
 # Curl #
 echo
-echo -n ${request_curl[$LANGUAGE]}
+echo -en ${request_curl[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
@@ -189,7 +189,7 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n ${remake_read[$LANGUAGE]}
+        echo -en ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
@@ -207,7 +207,7 @@ then
     echo
 else
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if [ "$check_r" == "o" ]
@@ -224,11 +224,11 @@ then
 fi
 # Nano #
 echo
-echo -n ${request_nano[$LANGUAGE]}
+echo -en ${request_nano[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
@@ -237,7 +237,7 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n ${remake_read[$LANGUAGE]}
+        echo -en ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
@@ -255,7 +255,7 @@ then
     echo
 else
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if [ "$check_r" == "o" ]
@@ -272,11 +272,11 @@ then
 fi
 # Openssl #
 echo
-echo -n ${request_openssl[$LANGUAGE]}
+echo -en ${request_openssl[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
@@ -285,7 +285,7 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n ${remake_read[$LANGUAGE]}
+        echo -en ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
@@ -303,7 +303,7 @@ then
     echo
 else
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if [ "$check_r" == "o" ]
@@ -322,11 +322,11 @@ fi
 #===================================================================================#
 # Steamcmd #
 echo
-echo -n ${request_steamcmd[$LANGUAGE]}
+echo -en ${request_steamcmd[$LANGUAGE]}
 read check_r
 if ! [[ "$check_r" =~ $CH ]]
 then
-    echo -n ${remake_read[$LANGUAGE]}
+    echo -en ${remake_read[$LANGUAGE]}
     read check_r
     echo
     if ! [[ "$check_r" =~ $CH ]]
@@ -335,7 +335,7 @@ then
         exit $ERROR
     elif [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
     then
-        echo -n ${remake_read[$LANGUAGE]}
+        echo -en ${remake_read[$LANGUAGE]}
         read check_r
         echo
         if [["$check_r" =~ ${awnser_trad[$LANGUAGE]}]]
