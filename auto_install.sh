@@ -45,7 +45,7 @@ declare -a install_gcc=("\e[7mInstallation de GCC [3/3]...\e[0m" "\e[7mGCC insta
 declare -a done_gcc=("\e[7mStatut de GCC : \e[32mInstallé\e[0m" "\e[7mGCC status : \e[32mInstalled\e[0m")
 declare -a install_sudo=("\e[7mInstallation de Sudo [3/3]...\e[0m" "\e[7mSudo instalation [3/3]...\e[0m")
 declare -a done_sudo=("\e[7mStatut de Sudo : \e[32mInstallé\e[0m" "\e[7mSudo status : \e[32mInstalled\e[0m")
-declare -a user_create=("\e[92m    C\e[0reation d'un nouvelle utilisateur temporaire.\e[0m" "\e[92m    C\e[0reation of temporary user.\e[0m")
+declare -a user_create=("\e[92m    C\e[0mreation d'un nouvelle utilisateur temporaire.\e[0m" "\e[92m    C\e[0mreation of temporary user.\e[0m")
 declare -a user_delete=("\e[92m    S\e[0mupression de l'utilisateur temporaire.\e[0m" "\e[92m    D\e[0meleting temporary user.\e[0m")
 
 clear
